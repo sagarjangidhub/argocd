@@ -29,3 +29,6 @@ spec:
         image: bitnami/zookeeper:latest
         ports:
         - containerPort: 2181
+        env:
+        - name: ALLOW_ANONYMOUS_LOGIN
+          value: "yes"  # Add this line to allow anonymous login
