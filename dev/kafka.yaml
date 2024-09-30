@@ -59,7 +59,7 @@ spec:
     - |
       # Sleep to wait for Kafka to start
       sleep 10
-      echo "Hello, Kafka" | kafka-console-producer.sh --broker-list kafka:9092 --topic demo-topic
+      echo "kafka-producer"
   restartPolicy: Never
 ---
 apiVersion: v1
@@ -77,6 +77,6 @@ spec:
     - |
       # Sleep to wait for Kafka to start
       sleep 10
-      kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic demo-topic --from-beginning --timeout-ms 5000
+      echo "kafka-consumer"
   restartPolicy: Never
 
