@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka-producer
+spec:
+  containers:
+  - name: kafka-producer
+    image: bitnami/kafka:latest
+    command:
+    - sh
+    - -c
+    - |
+      echo "Hello, Kafka" | kafka-console-producer.sh --broker-list kafka:9092 --topic demo-topic
+  restartPolicy: Never
