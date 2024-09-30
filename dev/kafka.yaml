@@ -84,22 +84,6 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kafka-topic-creator
-  namespace: kafka
-spec:
-  containers:
-  - name: kafka-topic-creator
-    image: bitnami/kafka:latest
-    command:
-    - sh
-    - -c
-    - |
-      kafka-topics.sh --create --topic demo-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
-  restartPolicy: Never
----
-apiVersion: v1
-kind: Pod
-metadata:
   name: kafka-producer
   namespace: kafka
 spec:
