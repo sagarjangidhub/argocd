@@ -1,35 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: swagger-editor
+  name: swagger-ui
   labels:
-    app: swagger-editor
+    app: swagger-ui
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: swagger-editor
+      app: swagger-ui
   template:
     metadata:
       labels:
-        app: swagger-editor
+        app: swagger-ui
     spec:
       containers:
-      - name: swagger-editor
-        image: swaggerapi/swagger-editor:latest
+      - name: swagger-ui
+        image: swaggerapi/swagger-ui:latest
         ports:
         - containerPort: 9090
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: swagger-editor
+  name: swagger-ui
 spec:
   type: NodePort
   selector:
-    app: swagger-editor
+    app: swagger-ui
   ports:
     - protocol: TCP
       port: 9090
       targetPort: 9090
-      nodePort: 30000  # This is the port you will access externally
+      nodePort: 30001  # You can change this if needed
